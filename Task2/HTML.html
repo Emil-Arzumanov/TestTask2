@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="JS.js" defer type="module"></script>
+    <title>Расписание</title>
+</head>
+<body>
+<section class="mainSection">
+    <div class="header">
+        <h1 class="header__h1">Программа выставки</h1>
+        <button class="header__button" id="activeProgramIsList">Вид расписания: Список</button>
+    </div>
+    <div class="exhibitionProgramTable">
+        <div class="exhibitionProgramTable__weeks">
+            <p>Порядок:</p>
+            <button>1-я неделя</button>
+            <button>2-я неделя</button>
+            <button>3-я неделя</button>
+        </div>
+        <div class="exhibitionProgramTable__program">
+            <div class="days">
+                <div class="days__day">23 сентября, ПН</div>
+                <div class="days__event days__eventEmpty days__eventTop">
+                    <div class="days__event__time">
+                        <div>
+                            9:00
+                            <span class="timezone">МСК</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="days__event">
+                    <div class="days__event__time">
+                        <div>
+                            10:00
+                            <span class="timezone">МСК</span>
+                        </div>
+                    </div>
+                    <div class="days__event__place">
+                        <a href="https://profi.travel/companies/957/news" target="_blank">
+                            Офис по туризму Дубая
+                        </a>
+                    </div>
+                    <div class="days__event__description">
+                        Департамент туризма Дубая расскажет,
+                        как эмират обеспечивает безопасность жителей и гостей.
+                    </div>
+                    <div class="days__event__button">
+                        <span class="span">Добавить в<br> календарь</span>
+                        <button class="plus">
+                            <img class="plusImage" src="imgs/plus.png">
+                            <img class="plusTopImage" src="imgs/plusHover.png">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="days">
+                <div class="days__day">13 октября, ВТ</div>
+                <div class="days__event days__eventTop">
+                    <div class="days__event__time">
+                        <div>
+                            9:00
+                            <span class="timezone">МСК</span>
+                        </div>
+                    </div>
+                    <div class="days__event__place">
+                        <a href="https://profi.travel/companies/957/news" target="_blank">
+                            Офис по туризму Дубая
+                        </a>
+                    </div>
+                    <div class="days__event__description">
+                        FIT: все турагенты делают это. Как быстро и безопасно
+                        удовлетворять сложные запросы туристов?Как быстро и
+                        безопасно удовлетворять сложные запросы туристов?
+                    </div>
+                    <div class="days__event__button">
+                        <span class="span">Добавить в<br> календарь</span>
+                        <button class="plus">
+                            <img class="plusImage" src="imgs/plus.png">
+                            <img class="plusTopImage" src="imgs/plusHover.png">
+                        </button>
+                    </div>
+                </div>
+                <div class="days__event">
+                    <div class="days__event__time">
+                        <div>
+                            9:00
+                            <span class="timezone">МСК</span>
+                        </div>
+                        <div class="live"><div class="live_pointDiv"></div><span>live</span></div>
+                    </div>
+                    <div class="days__event__place">
+                        <a href="https://profi.travel/companies/957/news" target="_blank">
+                            Офис по туризму Дубая
+                        </a>
+                    </div>
+                    <div class="days__event__description">
+                        Департамент туризма Дубая расскажет,
+                        как эмират обеспечивает безопасность жителей и гостей.
+                    </div>
+                    <div class="days__event__button">
+                        <span class="span">Добавить в<br> календарь</span>
+                        <button class="plus">
+                            <img class="plusImage" src="imgs/plus.png">
+                            <img class="plusTopImage" src="imgs/plusHover.png">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="days">
+                <div class="days__day">14 октября, СР</div>
+                <div class="days__event days__eventEmpty days__eventTop">
+                    <div class="days__event__time">
+                        <div>
+                            9:00
+                            <span class="timezone">МСК</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="days__event">
+                    <div class="days__event__time">
+                        <div>
+                            10:00
+                            <span class="timezone">МСК</span>
+                        </div>
+                    </div>
+                    <div class="days__event__place">
+                        <a href="https://profi.travel/companies/957/news" target="_blank">
+                            Офис по туризму Дубая
+                        </a>
+                    </div>
+                    <div class="days__event__description">
+                        Barceló в ОАЭ — все новости за час: готовимся к
+                        зимнему сезону, открытие нового отеля.
+                    </div>
+                    <div class="days__event__button">
+                        <span class="span">Добавить в<br> календарь</span>
+                        <button class="plus">
+                            <img class="plusImage" src="imgs/plus.png">
+                            <img class="plusTopImage" src="imgs/plusHover.png">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="days specialDays">
+                <div class="days__day">15 октября, ЧТ</div>
+                <div class="days__event">
+                    <div class="days__event__time">
+                        День нетворкинга
+                    </div>
+                    <div class="days__event__description">
+                        В этот день открыта возможность проведения встреч в системе
+                        нетворкинга. Выберите партнеров в турбизнесе и начните общение
+                        с ними!
+                    </div>
+                    <div class="specialDays__event__button">
+                        <input type="button" value="Перейти в систему">
+                    </div>
+                </div>
+                <div class="days__event"></div>
+            </div>
+            <div class="days">
+                <div class="days__day">16 октября, ПТ</div>
+                <div class="days__event days__eventTop">
+                    <div class="days__event__time">
+                        <div>
+                            9:00
+                            <span class="timezone">МСК</span>
+                        </div>
+                    </div>
+                    <div class="days__event__place">
+                        <a href="https://profi.travel/companies/957/news" target="_blank">
+                            Офис по туризму Дубая
+                        </a>
+                    </div>
+                    <div class="days__event__description">
+                        Barceló в ОАЭ — все новости за час: готовимся к
+                        зимнему сезону, открытие нового отеля.
+                    </div>
+                    <div class="days__event__button">
+                        <span class="span">Добавить в<br> календарь</span>
+                        <button class="plus">
+                            <img class="plusImage" src="imgs/plus.png">
+                            <img class="plusTopImage" src="imgs/plusHover.png">
+                        </button>
+                    </div>
+                </div>
+                <div class="days__event days__eventEmpty">
+                    <div class="days__event__time">
+                        <div>
+                            10:00
+                            <span class="timezone">МСК</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="exhibitionProgramList">
+        <div class="listDay">
+            <div class="listDay__date">
+                12 октября
+                <div></div>
+                Вторник
+            </div>
+            <div class="listDay__timeAndDescription">
+                <div class="time">
+                    14:00
+                    <span class="timezone">МСК</span>
+                </div>
+                <div class="listDay__timeAndDescription__description">
+                    <h4>
+                        <a href="https://wholesale-airmail-10d.notion.site/Junior-Frontend-741aabf3248c490b9393b561968e800a" target="_blank">
+                            Круглый стол с хэдофисами НТО: новые турпродукты и
+                            триггеры для продвижения на туристов из России и СНГ
+                        </a>
+                    </h4>
+                    <div>
+                        <a href="https://wholesale-airmail-10d.notion.site/Junior-Frontend-741aabf3248c490b9393b561968e800a" target="_blank">
+                            Официальное открытие «OTM: Зима 20/21»: онлайн-сессия
+                            с участием представителей туристических офисов Греции,
+                            Польши, Венгрии, Беларуси и Риги.
+                        </a>
+                    </div>
+                    <button class="programButton">Программа</button>
+                    <ol class="listDay__timeAndDescription__description__ol">
+                        <li>1. Новогодняя столица России 2021 — итоги проекта.</li>
+                        <li>2. Календарь событий 2021.</li>
+                        <li>3. Космос как событие — запуск второй очереди музея Истории космонавтики</li>
+                        <li>4. Город науики и технологий — 65 лет Обнинску.</li>
+                        <li>5. День города как региональный праздник — 650 лет Калеге.</li>
+                        <li>6. Эктотуризм как тренд развития — маршруты, новые проекты, инвесторы.</li>
+                    </ol>
+                </div>
+                <div class="buttonDiv">
+                    <div class="buttonDiv__button">
+                        <span class="buttonDiv__button__span">
+                            Добавить
+                        </span>
+                        <button class="buttonDiv__button__plus" id="plus2">
+                            <img class="plusImage" src="imgs/plusHover.png">
+                            <img class="plusTopImage" src="imgs/plusHover.png">
+                        </button>
+                    </div>
+                    <p>615 участников уже записались</p>
+                </div>
+            </div>
+            <div class="listDay__organisation">
+                <span class="regularSpan">Национальная организация туризма Кореи</span>
+                <div></div>
+                <span class="phoneSizeSpan">Национальная организация туризма Кореи</span>
+            </div>
+            <button id="scrollBarButton">></button>
+            <div class="listDay__scrollBar">
+            </div>
+            <div class="buttonDivBottom">
+                <div class="buttonDivBottom__button">
+                        <span class="buttonDivBottom__button__span">
+                            Добавить
+                        </span>
+                    <button class="buttonDivBottom__button__plus" id="plus2">
+                        <img class="plusImage" src="imgs/plusHover.png">
+                        <img class="plusTopImage" src="imgs/plusHover.png">
+                    </button>
+                </div>
+                <p>615 участников уже записались</p>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,779 @@
+/*** Обнуление ***/
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*** Разрешения экранов ***/
+$largeDesktopMax: 3840px;
+$largeDesktopMin: 1440px;
+$desktopMax: 1439px;
+$desktopMin: 1280px;
+$largeTabletMax: 1279px;
+$largeTabletMin: 768px;
+$tabletMax: 767px;
+$tabletMin: 567px;
+$phoneMax: 566px;
+$phoneMin: 320px;
+/******/
+/*
+@media (min-width: $largeDesktopMin) {
+
+  }
+*/
+body {
+  width: 100%;
+  font-family: Arial;
+  font-style: normal;
+  background-color: #f5f5f5;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.mainSection {
+  width: 100%;
+  max-width: $largeDesktopMax;
+  min-height: 100vh;
+  padding: 77px 80px 121px 80px;
+  margin: auto;
+
+  .header {
+    display: grid;
+    grid-template-columns: 80% 20%;
+
+    .header__h1 {
+      font-weight: 800;
+      font-size: 48px;
+      line-height: 110%;
+      color: #000222;
+    }
+
+    .header__button {
+      border: 1px solid black;
+      border-radius: 25px;
+    }
+  }
+
+  @media (max-width: $desktopMin) {
+    .header {
+      display: block;
+    }
+    .header__button {
+      display: none;
+    }
+  }
+
+  @media (max-width: $desktopMin) {
+    .exhibitionProgramTable {
+      display: none;
+    }
+    .exhibitionProgramList {
+      display: block;
+    }
+  }
+}
+
+/** Таблица **/
+.exhibitionProgramTable {
+  .exhibitionProgramTable__weeks {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 17px;
+    justify-content: right;
+
+    p {
+      font-size: 18px;
+      line-height: 125%;
+      color: #888888;
+      margin-right: 9px;
+    }
+
+    button {
+      padding: 5px 9px;
+      background: #FFFFFF;
+      border-radius: 20px;
+      border: none;
+      margin-left: 16px;
+    }
+
+    button:hover {
+      background: #185ADB;
+      color: #FFFFFF;
+    }
+  }
+}
+
+.exhibitionProgramTable__program {
+  padding-top: 70px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 0.7%;
+
+  .days {
+    background-color: #FFFFFF;
+    height: 600px;
+    border-radius: 25px;
+    overflow: hidden;
+
+    .days__day {
+      text-align: left;
+      height: 42px;
+      background-color: #E5E5E5;
+      padding: 12px 25px;
+      font-size: 14px;
+      line-height: 130%;
+    }
+
+    .days__event {
+      height: 279px;
+      padding: 24px;
+      color: #000222;
+
+      .days__event__time {
+        font-weight: 800;
+        font-size: 16px;
+        line-height: 130%;
+        padding-bottom: 8px;
+        display: grid;
+        grid-template-columns: 8fr 1fr;
+
+        .timezone {
+          font-size: 11px;
+          line-height: 135%;
+          position: relative;
+          top: -6px;
+        }
+        .live {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-column-gap: 5px;
+          .live_pointDiv {
+            border-radius: 90px;
+            width: 11px;
+            height: 11px;
+            background-color: #FF0011;
+          }
+          font-weight: normal;
+          font-size: 11px;
+          line-height: 135%;
+          color: #FF0011;
+        }
+      }
+
+      .days__event__place {
+        font-style: italic;
+        font-weight: 600;
+        font-size: 11px;
+        line-height: 130%;
+        color: #185ADB;
+        padding-bottom: 8px;
+      }
+
+      .days__event__description {
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 130%;
+        color: #000222;
+        height: 130px;
+        overflow: hidden;
+        overflow-y: auto;
+      }
+
+      /** Scroll bar **/
+      .days__event__description::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      .days__event__description::-webkit-scrollbar-track {
+        background-color: #e5e5e5;
+        border-radius: 100px;
+      }
+
+      .days__event__description::-webkit-scrollbar-thumb {
+        border-radius: 100px;
+        border: 6px solid rgba(0, 0, 0, 0.18);
+        border-left: 0;
+        border-right: 0;
+        background-color: #185ADB;
+      }
+
+      /****/
+      .days__event__button {
+        display: grid;
+        grid-template-columns: 8fr 1fr;
+        background: none;
+        border: none;
+        padding-top: 10px;
+
+        .span {
+          font-size: 11px;
+          text-align: right;
+          color: #888899;
+          line-height: 1.5em;
+        }
+
+        /** Plus Button **/
+        .plus {
+          border: none;
+          width: 50px;
+          height: 50px;
+          top: -10px;
+          left: 10px;
+          position: relative;
+          display: inline-block;
+          background: none;
+
+          .plusImage {
+            width: 34px;
+          }
+
+          .plusTopImage {
+            display: none;
+            position: absolute;
+            top: 8px;
+            left: 6px;
+            z-index: 99;
+          }
+        }
+
+        .plus:hover {
+          .plusTopImage {
+            display: inline;
+          }
+        }
+
+        /****/
+      }
+    }
+
+    .days__eventEmpty {
+      color: #E5E5E5;
+    }
+
+    .days__eventTop {
+      border-bottom: 2px solid #f5f5f5;
+    }
+  }
+
+  .specialDays {
+    .days__day {
+      background-color: #FFEE00;
+      font-weight: 800;
+      font-size: 14px;
+      line-height: 130%;
+      color: #000222;
+    }
+
+    .specialDays__event__button {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      input {
+        border: none;
+        padding: 9px 24px;
+        background: #FFEE00;
+        border-radius: 33px;
+        font-weight: 800;
+        font-size: 14px;
+        line-height: 130%;
+        text-align: center;
+        color: #000222;
+      }
+    }
+  }
+}
+
+/****/
+.exhibitionProgramTable {
+  display: none;
+}
+
+/**** Список ****/
+
+.exhibitionProgramList {
+  padding-top: 64px;
+
+  .listDay {
+    background-color: #FFFFFF;
+    border-radius: 25px;
+    overflow: hidden;
+    padding-bottom: 25px;
+
+    .listDay__date {
+      height: 56px;
+      background: #E5E5E5;
+      padding-left: 25px;
+      font-size: 24px;
+      line-height: 125%;
+      color: #000222;
+      padding-top: 6.5px;
+
+      div {
+        display: inline-block;
+        width: 1px;
+        height: 30px;
+        background-color: #000222;
+        position: relative;
+        top: 7.5px;
+      }
+    }
+
+    .listDay__timeAndDescription {
+      display: grid;
+      grid-template-columns: 170px 5fr 336px;
+      grid-column-gap: 20px;
+      padding-top: 40px;
+      padding-left: 25px;
+      letter-spacing: 0;
+
+      .time {
+        font-weight: 800;
+        font-size: 36px;
+        line-height: 125%;
+        color: #000222;
+
+        .timezone {
+          font-size: 16px;
+          line-height: 130%;
+          position: relative;
+          top: -18px;
+        }
+      }
+
+      .listDay__timeAndDescription__description {
+        h4 {
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 130%;
+          color: #000222;
+          padding-bottom: 14px;
+        }
+
+        div {
+          font-size: 16px;
+          line-height: 155%;
+          color: #000222;
+          padding-bottom: 18px;
+        }
+
+        .programButton {
+          width: 113px;
+          height: 26px;
+          background: #F0F0F0;
+          border-radius: 6px;
+          border: none;
+        }
+
+        .active {
+          border-radius: 6px 6px 0 0;
+        }
+
+        .listDay__timeAndDescription__description__ol {
+          display: none;
+          background-color: #F0F0F0;
+          margin: 0;
+          padding: 19px 24px 24px 24px;
+          border-radius: 0 6px 6px 6px;
+
+          li {
+            padding-top: 5px;
+            font-size: 14px;
+            line-height: 155%;
+            color: #000222;
+          }
+        }
+      }
+
+      .buttonDiv {
+        text-align: center;
+
+        .buttonDiv__button {
+          display: inline-block;
+          width: 264px;
+          height: 48px;
+          background: #FFFFFF;
+          border: 1px solid #185ADB;
+          box-sizing: border-box;
+          border-radius: 56px;
+          user-select: none;
+
+          .buttonDiv__button__span {
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 125%;
+            display: inline-block;
+            width: 210.5px;
+            text-align: center;
+            position: relative;
+            top: -12.25px;
+            left: 1px;
+          }
+
+          /** Plus Button **/
+          .buttonDiv__button__plus {
+            border: none;
+            border-left: 1px solid #FFFFFF;
+            width: 47px;
+            height: 47px;
+            top: -1px;
+            position: relative;
+            display: inline-block;
+            background: #185ADB;
+            border-radius: 0 25px 25px 0;
+
+            .plusImage {
+              width: 34px;
+              border-radius: 25px;
+            }
+
+            .plusTopImage {
+              display: none;
+              position: absolute;
+              top: 6.5px;
+              left: 6px;
+              z-index: 99;
+              border-radius: 25px;
+            }
+          }
+
+          /****/
+        }
+
+        .buttonDiv__button:hover {
+          color: #FFFFFF;
+          background-color: #185ADB;
+
+          .buttonDiv__button__plus {
+            .plusTopImage {
+              display: inline;
+            }
+          }
+        }
+
+        .buttonDiv__buttonAdded {
+          border-color: #C0C0C0;
+          background-color: #FFFFFF;
+          color: #C0C0C0;
+
+          .buttonDiv__button__plus {
+            background: none;
+            border-left-color: #C0C0C0;
+          }
+        }
+
+        .buttonDiv__buttonAdded:hover {
+          color: #000222;
+          background: none;
+
+          .buttonDiv__button__plus {
+            .plusTopImage {
+              display: inline;
+            }
+          }
+        }
+
+        p {
+          padding-top: 16px;
+          font-size: 14px;
+          line-height: 130%;
+          text-align: center;
+          color: #000222;
+        }
+      }
+    }
+
+    @media (max-width: $largeTabletMax) {
+      .listDay__timeAndDescription {
+        display: grid;
+        grid-template-columns: 170px 5fr;
+        grid-column-gap: 20px;
+        padding-right: 25px;
+
+        .buttonDiv {
+          display: none;
+        }
+      }
+    }
+    @media (max-width: $tabletMax) {
+      .listDay__timeAndDescription {
+        display: block;
+        padding-right: 25px;
+
+        .time {
+          padding-bottom: 12px;
+        }
+      }
+    }
+
+    .listDay__organisation {
+      padding: 36px 25px;
+      display: grid;
+      span {
+        font-size: 16px;
+        line-height: 130%;
+        color: #E5E5E5;
+      }
+      .regularSpan {
+        display: none;
+      }
+      .phoneSizeSpan {
+        display: block;
+        padding-top: 10px;
+      }
+
+      div {
+        display: inline-block;
+        height: 1px;
+        background-color: #e5e5e5;
+      }
+    }
+    @media (min-width: $tabletMax) {
+      .listDay__organisation {
+        padding-right: 40px;
+        display: grid;
+        grid-template-columns: 330px 6fr;
+        .regularSpan {
+          display: inline-block;
+        }
+        .phoneSizeSpan {
+          display: none;
+        }
+        div {
+          position: relative;
+          top: 11px;
+        }
+      }
+    }
+  }
+
+  #scrollBarButton {
+    float: right;
+    width: 52px;
+    height: 68px;
+    background-color: #e5e5e5;
+    border: 6px solid #FFFFFF;
+    font-size: 30px;
+    border-radius: 18px 0px 0px 18px;
+  }
+
+  .listDay__scrollBar {
+    padding: 0 25px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-column-gap: 1%;
+
+    .speakerDiv {
+      display: grid;
+      grid-template-columns: 56px auto;
+      grid-column-gap: 6%;
+      min-width: 264px;
+
+      img {
+        width: 56px;
+      }
+
+      .speakerDescriptionDiv {
+        position: relative;
+        top: 5px;
+
+        h4 {
+          font-weight: 800;
+          font-size: 16px;
+          line-height: 130%;
+          color: #000222;
+
+        }
+
+        p {
+          font-size: 11px;
+          line-height: 135%;
+          color: #000222;
+        }
+      }
+    }
+  }
+
+  .buttonDivBottom {
+    text-align: center;
+    width: 100%;
+    float: right;
+    .buttonDivBottom__button {
+      user-select: none;
+      margin: auto;
+      display: grid;
+      width: 80%;
+      height: 48px;
+      background: #FFFFFF;
+      border: 1px solid #185ADB;
+      box-sizing: border-box;
+      border-radius: 56px;
+      grid-template-columns: auto 47px;
+
+      .buttonDivBottom__button__span {
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 125%;
+        display: inline-block;
+        text-align: center;
+        position: relative;
+        left: 1px;
+        margin: auto;
+      }
+
+      /** Plus Button **/
+      .buttonDivBottom__button__plus {
+        border: none;
+        border-left: 1px solid #FFFFFF;
+        width: 47px;
+        height: 47px;
+        top: -1px;
+        position: relative;
+        display: inline-block;
+        background: #185ADB;
+        border-radius: 0 25px 25px 0;
+
+        .plusImage {
+          width: 34px;
+          border-radius: 25px;
+        }
+
+        .plusTopImage {
+          display: none;
+          position: absolute;
+          top: 6.5px;
+          left: 6px;
+          z-index: 99;
+          border-radius: 25px;
+        }
+      }
+
+      /****/
+    }
+
+    .buttonDivBottom__button:hover {
+      color: #FFFFFF;
+      background-color: #185ADB;
+
+      .buttonDivBottom__button__plus {
+        .plusTopImage {
+          display: inline;
+        }
+      }
+    }
+
+    .buttonDivBottom__buttonAdded {
+      border-color: #C0C0C0;
+      background-color: #FFFFFF;
+      color: #C0C0C0;
+
+      .buttonDivBottom__button__plus {
+        background: none;
+        border-left-color: #C0C0C0;
+      }
+    }
+
+    .buttonDivBottom__buttonAdded:hover {
+      color: #000222;
+      background: none;
+
+      .buttonDivBottom__button__plus {
+        .plusTopImage {
+          display: inline;
+        }
+      }
+    }
+
+    p {
+      padding-top: 16px;
+      font-size: 14px;
+      line-height: 130%;
+      text-align: center;
+      color: #000222;
+    }
+  }
+
+  @media (min-width: $largeTabletMax) {
+    .buttonDivBottom {
+      display: none;
+    }
+  }
+}

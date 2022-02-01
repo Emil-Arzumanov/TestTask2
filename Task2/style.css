@@ -1,0 +1,555 @@
+@charset "UTF-8";
+/*** Обнуление ***/
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0; }
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0; }
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed; }
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none; }
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto; }
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block; }
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em; }
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit; }
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important; } }
+/*** Разрешения экранов ***/
+/******/
+/*
+@media (min-width: $largeDesktopMin) {
+
+  }
+*/
+body {
+  width: 100%;
+  font-family: Arial;
+  font-style: normal;
+  background-color: #f5f5f5; }
+  body a {
+    text-decoration: none;
+    color: inherit; }
+
+.mainSection {
+  width: 100%;
+  max-width: 3840px;
+  min-height: 100vh;
+  padding: 77px 80px 121px 80px;
+  margin: auto; }
+  .mainSection .header {
+    display: grid;
+    grid-template-columns: 80% 20%; }
+    .mainSection .header .header__h1 {
+      font-weight: 800;
+      font-size: 48px;
+      line-height: 110%;
+      color: #000222; }
+    .mainSection .header .header__button {
+      border: 1px solid black;
+      border-radius: 25px; }
+  @media (max-width: 1280px) {
+    .mainSection .header {
+      display: block; }
+    .mainSection .header__button {
+      display: none; } }
+  @media (max-width: 1280px) {
+    .mainSection .exhibitionProgramTable {
+      display: none; }
+    .mainSection .exhibitionProgramList {
+      display: block; } }
+
+/** Таблица **/
+.exhibitionProgramTable .exhibitionProgramTable__weeks {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 17px;
+  justify-content: right; }
+  .exhibitionProgramTable .exhibitionProgramTable__weeks p {
+    font-size: 18px;
+    line-height: 125%;
+    color: #888888;
+    margin-right: 9px; }
+  .exhibitionProgramTable .exhibitionProgramTable__weeks button {
+    padding: 5px 9px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    border: none;
+    margin-left: 16px; }
+  .exhibitionProgramTable .exhibitionProgramTable__weeks button:hover {
+    background: #185ADB;
+    color: #FFFFFF; }
+
+.exhibitionProgramTable__program {
+  padding-top: 70px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 0.7%; }
+  .exhibitionProgramTable__program .days {
+    background-color: #FFFFFF;
+    height: 600px;
+    border-radius: 25px;
+    overflow: hidden; }
+    .exhibitionProgramTable__program .days .days__day {
+      text-align: left;
+      height: 42px;
+      background-color: #E5E5E5;
+      padding: 12px 25px;
+      font-size: 14px;
+      line-height: 130%; }
+    .exhibitionProgramTable__program .days .days__event {
+      height: 279px;
+      padding: 24px;
+      color: #000222;
+      /** Scroll bar **/
+      /****/ }
+      .exhibitionProgramTable__program .days .days__event .days__event__time {
+        font-weight: 800;
+        font-size: 16px;
+        line-height: 130%;
+        padding-bottom: 8px;
+        display: grid;
+        grid-template-columns: 8fr 1fr; }
+        .exhibitionProgramTable__program .days .days__event .days__event__time .timezone {
+          font-size: 11px;
+          line-height: 135%;
+          position: relative;
+          top: -6px; }
+        .exhibitionProgramTable__program .days .days__event .days__event__time .live {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-column-gap: 5px;
+          font-weight: normal;
+          font-size: 11px;
+          line-height: 135%;
+          color: #FF0011; }
+          .exhibitionProgramTable__program .days .days__event .days__event__time .live .live_pointDiv {
+            border-radius: 90px;
+            width: 11px;
+            height: 11px;
+            background-color: #FF0011; }
+      .exhibitionProgramTable__program .days .days__event .days__event__place {
+        font-style: italic;
+        font-weight: 600;
+        font-size: 11px;
+        line-height: 130%;
+        color: #185ADB;
+        padding-bottom: 8px; }
+      .exhibitionProgramTable__program .days .days__event .days__event__description {
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 130%;
+        color: #000222;
+        height: 130px;
+        overflow: hidden;
+        overflow-y: auto; }
+      .exhibitionProgramTable__program .days .days__event .days__event__description::-webkit-scrollbar {
+        width: 10px; }
+      .exhibitionProgramTable__program .days .days__event .days__event__description::-webkit-scrollbar-track {
+        background-color: #e5e5e5;
+        border-radius: 100px; }
+      .exhibitionProgramTable__program .days .days__event .days__event__description::-webkit-scrollbar-thumb {
+        border-radius: 100px;
+        border: 6px solid rgba(0, 0, 0, 0.18);
+        border-left: 0;
+        border-right: 0;
+        background-color: #185ADB; }
+      .exhibitionProgramTable__program .days .days__event .days__event__button {
+        display: grid;
+        grid-template-columns: 8fr 1fr;
+        background: none;
+        border: none;
+        padding-top: 10px;
+        /** Plus Button **/
+        /****/ }
+        .exhibitionProgramTable__program .days .days__event .days__event__button .span {
+          font-size: 11px;
+          text-align: right;
+          color: #888899;
+          line-height: 1.5em; }
+        .exhibitionProgramTable__program .days .days__event .days__event__button .plus {
+          border: none;
+          width: 50px;
+          height: 50px;
+          top: -10px;
+          left: 10px;
+          position: relative;
+          display: inline-block;
+          background: none; }
+          .exhibitionProgramTable__program .days .days__event .days__event__button .plus .plusImage {
+            width: 34px; }
+          .exhibitionProgramTable__program .days .days__event .days__event__button .plus .plusTopImage {
+            display: none;
+            position: absolute;
+            top: 8px;
+            left: 6px;
+            z-index: 99; }
+        .exhibitionProgramTable__program .days .days__event .days__event__button .plus:hover .plusTopImage {
+          display: inline; }
+    .exhibitionProgramTable__program .days .days__eventEmpty {
+      color: #E5E5E5; }
+    .exhibitionProgramTable__program .days .days__eventTop {
+      border-bottom: 2px solid #f5f5f5; }
+  .exhibitionProgramTable__program .specialDays .days__day {
+    background-color: #FFEE00;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 130%;
+    color: #000222; }
+  .exhibitionProgramTable__program .specialDays .specialDays__event__button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; }
+    .exhibitionProgramTable__program .specialDays .specialDays__event__button input {
+      border: none;
+      padding: 9px 24px;
+      background: #FFEE00;
+      border-radius: 33px;
+      font-weight: 800;
+      font-size: 14px;
+      line-height: 130%;
+      text-align: center;
+      color: #000222; }
+
+/****/
+.exhibitionProgramTable {
+  display: none; }
+
+/**** Список ****/
+.exhibitionProgramList {
+  padding-top: 64px; }
+  .exhibitionProgramList .listDay {
+    background-color: #FFFFFF;
+    border-radius: 25px;
+    overflow: hidden;
+    padding-bottom: 25px; }
+    .exhibitionProgramList .listDay .listDay__date {
+      height: 56px;
+      background: #E5E5E5;
+      padding-left: 25px;
+      font-size: 24px;
+      line-height: 125%;
+      color: #000222;
+      padding-top: 6.5px; }
+      .exhibitionProgramList .listDay .listDay__date div {
+        display: inline-block;
+        width: 1px;
+        height: 30px;
+        background-color: #000222;
+        position: relative;
+        top: 7.5px; }
+    .exhibitionProgramList .listDay .listDay__timeAndDescription {
+      display: grid;
+      grid-template-columns: 170px 5fr 336px;
+      grid-column-gap: 20px;
+      padding-top: 40px;
+      padding-left: 25px;
+      letter-spacing: 0; }
+      .exhibitionProgramList .listDay .listDay__timeAndDescription .time {
+        font-weight: 800;
+        font-size: 36px;
+        line-height: 125%;
+        color: #000222; }
+        .exhibitionProgramList .listDay .listDay__timeAndDescription .time .timezone {
+          font-size: 16px;
+          line-height: 130%;
+          position: relative;
+          top: -18px; }
+      .exhibitionProgramList .listDay .listDay__timeAndDescription .listDay__timeAndDescription__description h4 {
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 130%;
+        color: #000222;
+        padding-bottom: 14px; }
+      .exhibitionProgramList .listDay .listDay__timeAndDescription .listDay__timeAndDescription__description div {
+        font-size: 16px;
+        line-height: 155%;
+        color: #000222;
+        padding-bottom: 18px; }
+      .exhibitionProgramList .listDay .listDay__timeAndDescription .listDay__timeAndDescription__description .programButton {
+        width: 113px;
+        height: 26px;
+        background: #F0F0F0;
+        border-radius: 6px;
+        border: none; }
+      .exhibitionProgramList .listDay .listDay__timeAndDescription .listDay__timeAndDescription__description .active {
+        border-radius: 6px 6px 0 0; }
+      .exhibitionProgramList .listDay .listDay__timeAndDescription .listDay__timeAndDescription__description .listDay__timeAndDescription__description__ol {
+        display: none;
+        background-color: #F0F0F0;
+        margin: 0;
+        padding: 19px 24px 24px 24px;
+        border-radius: 0 6px 6px 6px; }
+        .exhibitionProgramList .listDay .listDay__timeAndDescription .listDay__timeAndDescription__description .listDay__timeAndDescription__description__ol li {
+          padding-top: 5px;
+          font-size: 14px;
+          line-height: 155%;
+          color: #000222; }
+      .exhibitionProgramList .listDay .listDay__timeAndDescription .buttonDiv {
+        text-align: center; }
+        .exhibitionProgramList .listDay .listDay__timeAndDescription .buttonDiv .buttonDiv__button {
+          display: inline-block;
+          width: 264px;
+          height: 48px;
+          background: #FFFFFF;
+          border: 1px solid #185ADB;
+          box-sizing: border-box;
+          border-radius: 56px;
+          user-select: none;
+          /** Plus Button **/
+          /****/ }
+          .exhibitionProgramList .listDay .listDay__timeAndDescription .buttonDiv .buttonDiv__button .buttonDiv__button__span {
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 125%;
+            display: inline-block;
+            width: 210.5px;
+            text-align: center;
+            position: relative;
+            top: -12.25px;
+            left: 1px; }
+          .exhibitionProgramList .listDay .listDay__timeAndDescription .buttonDiv .buttonDiv__button .buttonDiv__button__plus {
+            border: none;
+            border-left: 1px solid #FFFFFF;
+            width: 47px;
+            height: 47px;
+            top: -1px;
+            position: relative;
+            display: inline-block;
+            background: #185ADB;
+            border-radius: 0 25px 25px 0; }
+            .exhibitionProgramList .listDay .listDay__timeAndDescription .buttonDiv .buttonDiv__button .buttonDiv__button__plus .plusImage {
+              width: 34px;
+              border-radius: 25px; }
+            .exhibitionProgramList .listDay .listDay__timeAndDescription .buttonDiv .buttonDiv__button .buttonDiv__button__plus .plusTopImage {
+              display: none;
+              position: absolute;
+              top: 6.5px;
+              left: 6px;
+              z-index: 99;
+              border-radius: 25px; }
+        .exhibitionProgramList .listDay .listDay__timeAndDescription .buttonDiv .buttonDiv__button:hover {
+          color: #FFFFFF;
+          background-color: #185ADB; }
+          .exhibitionProgramList .listDay .listDay__timeAndDescription .buttonDiv .buttonDiv__button:hover .buttonDiv__button__plus .plusTopImage {
+            display: inline; }
+        .exhibitionProgramList .listDay .listDay__timeAndDescription .buttonDiv .buttonDiv__buttonAdded {
+          border-color: #C0C0C0;
+          background-color: #FFFFFF;
+          color: #C0C0C0; }
+          .exhibitionProgramList .listDay .listDay__timeAndDescription .buttonDiv .buttonDiv__buttonAdded .buttonDiv__button__plus {
+            background: none;
+            border-left-color: #C0C0C0; }
+        .exhibitionProgramList .listDay .listDay__timeAndDescription .buttonDiv .buttonDiv__buttonAdded:hover {
+          color: #000222;
+          background: none; }
+          .exhibitionProgramList .listDay .listDay__timeAndDescription .buttonDiv .buttonDiv__buttonAdded:hover .buttonDiv__button__plus .plusTopImage {
+            display: inline; }
+        .exhibitionProgramList .listDay .listDay__timeAndDescription .buttonDiv p {
+          padding-top: 16px;
+          font-size: 14px;
+          line-height: 130%;
+          text-align: center;
+          color: #000222; }
+    @media (max-width: 1279px) {
+      .exhibitionProgramList .listDay .listDay__timeAndDescription {
+        display: grid;
+        grid-template-columns: 170px 5fr;
+        grid-column-gap: 20px;
+        padding-right: 25px; }
+        .exhibitionProgramList .listDay .listDay__timeAndDescription .buttonDiv {
+          display: none; } }
+    @media (max-width: 767px) {
+      .exhibitionProgramList .listDay .listDay__timeAndDescription {
+        display: block;
+        padding-right: 25px; }
+        .exhibitionProgramList .listDay .listDay__timeAndDescription .time {
+          padding-bottom: 12px; } }
+    .exhibitionProgramList .listDay .listDay__organisation {
+      padding: 36px 25px;
+      display: grid; }
+      .exhibitionProgramList .listDay .listDay__organisation span {
+        font-size: 16px;
+        line-height: 130%;
+        color: #E5E5E5; }
+      .exhibitionProgramList .listDay .listDay__organisation .regularSpan {
+        display: none; }
+      .exhibitionProgramList .listDay .listDay__organisation .phoneSizeSpan {
+        display: block;
+        padding-top: 10px; }
+      .exhibitionProgramList .listDay .listDay__organisation div {
+        display: inline-block;
+        height: 1px;
+        background-color: #e5e5e5; }
+    @media (min-width: 767px) {
+      .exhibitionProgramList .listDay .listDay__organisation {
+        padding-right: 40px;
+        display: grid;
+        grid-template-columns: 330px 6fr; }
+        .exhibitionProgramList .listDay .listDay__organisation .regularSpan {
+          display: inline-block; }
+        .exhibitionProgramList .listDay .listDay__organisation .phoneSizeSpan {
+          display: none; }
+        .exhibitionProgramList .listDay .listDay__organisation div {
+          position: relative;
+          top: 11px; } }
+  .exhibitionProgramList #scrollBarButton {
+    float: right;
+    width: 52px;
+    height: 68px;
+    background-color: #e5e5e5;
+    border: 6px solid #FFFFFF;
+    font-size: 30px;
+    border-radius: 18px 0px 0px 18px; }
+  .exhibitionProgramList .listDay__scrollBar {
+    padding: 0 25px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-column-gap: 1%; }
+    .exhibitionProgramList .listDay__scrollBar .speakerDiv {
+      display: grid;
+      grid-template-columns: 56px auto;
+      grid-column-gap: 6%;
+      min-width: 264px; }
+      .exhibitionProgramList .listDay__scrollBar .speakerDiv img {
+        width: 56px; }
+      .exhibitionProgramList .listDay__scrollBar .speakerDiv .speakerDescriptionDiv {
+        position: relative;
+        top: 5px; }
+        .exhibitionProgramList .listDay__scrollBar .speakerDiv .speakerDescriptionDiv h4 {
+          font-weight: 800;
+          font-size: 16px;
+          line-height: 130%;
+          color: #000222; }
+        .exhibitionProgramList .listDay__scrollBar .speakerDiv .speakerDescriptionDiv p {
+          font-size: 11px;
+          line-height: 135%;
+          color: #000222; }
+  .exhibitionProgramList .buttonDivBottom {
+    text-align: center;
+    width: 100%;
+    float: right; }
+    .exhibitionProgramList .buttonDivBottom .buttonDivBottom__button {
+      user-select: none;
+      margin: auto;
+      display: grid;
+      width: 80%;
+      height: 48px;
+      background: #FFFFFF;
+      border: 1px solid #185ADB;
+      box-sizing: border-box;
+      border-radius: 56px;
+      grid-template-columns: auto 47px;
+      /** Plus Button **/
+      /****/ }
+      .exhibitionProgramList .buttonDivBottom .buttonDivBottom__button .buttonDivBottom__button__span {
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 125%;
+        display: inline-block;
+        text-align: center;
+        position: relative;
+        left: 1px;
+        margin: auto; }
+      .exhibitionProgramList .buttonDivBottom .buttonDivBottom__button .buttonDivBottom__button__plus {
+        border: none;
+        border-left: 1px solid #FFFFFF;
+        width: 47px;
+        height: 47px;
+        top: -1px;
+        position: relative;
+        display: inline-block;
+        background: #185ADB;
+        border-radius: 0 25px 25px 0; }
+        .exhibitionProgramList .buttonDivBottom .buttonDivBottom__button .buttonDivBottom__button__plus .plusImage {
+          width: 34px;
+          border-radius: 25px; }
+        .exhibitionProgramList .buttonDivBottom .buttonDivBottom__button .buttonDivBottom__button__plus .plusTopImage {
+          display: none;
+          position: absolute;
+          top: 6.5px;
+          left: 6px;
+          z-index: 99;
+          border-radius: 25px; }
+    .exhibitionProgramList .buttonDivBottom .buttonDivBottom__button:hover {
+      color: #FFFFFF;
+      background-color: #185ADB; }
+      .exhibitionProgramList .buttonDivBottom .buttonDivBottom__button:hover .buttonDivBottom__button__plus .plusTopImage {
+        display: inline; }
+    .exhibitionProgramList .buttonDivBottom .buttonDivBottom__buttonAdded {
+      border-color: #C0C0C0;
+      background-color: #FFFFFF;
+      color: #C0C0C0; }
+      .exhibitionProgramList .buttonDivBottom .buttonDivBottom__buttonAdded .buttonDivBottom__button__plus {
+        background: none;
+        border-left-color: #C0C0C0; }
+    .exhibitionProgramList .buttonDivBottom .buttonDivBottom__buttonAdded:hover {
+      color: #000222;
+      background: none; }
+      .exhibitionProgramList .buttonDivBottom .buttonDivBottom__buttonAdded:hover .buttonDivBottom__button__plus .plusTopImage {
+        display: inline; }
+    .exhibitionProgramList .buttonDivBottom p {
+      padding-top: 16px;
+      font-size: 14px;
+      line-height: 130%;
+      text-align: center;
+      color: #000222; }
+  @media (min-width: 1279px) {
+    .exhibitionProgramList .buttonDivBottom {
+      display: none; } }
+
+/*# sourceMappingURL=style.css.map */
